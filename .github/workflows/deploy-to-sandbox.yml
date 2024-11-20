@@ -1,13 +1,15 @@
-name: Deploy to Salesforce Sandbox
+name: Salesforce CRM Deploy
 
-# Trigger the workflow on pushes to the `main` branch
+# **What it does**: Deploys the project codebase to Salesforce
+
+run-name: Deploy started by @${{ github.actor }}
 on:
-  push:
+  workflow_dispatch:
     branches:
-      - main  # Change this if your deployment branch is different
+      - master
 
 jobs:
-  deploy:
+  validate_deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,26 +17,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Install Salesforce CLI
-      - name: Install Salesforce CLI
-        run: |
-          sudo npm install --global sfdx-cli
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.0.0'
 
       # Step 3: Decode the private key from GitHub Secrets
       - name: Decode Salesforce Private Key
         run: |
           echo "${{ secrets.SF_SERVER_KEY }}" | base64 --decode > server.key
 
+      - name: Install Salesforce CLI
+        run: npm install @salesforce/cli --global
+
       # Step 4: Authenticate to Salesforce using JWT
       - name: Authenticate to Salesforce
         run: |
-          sfdx auth:jwt:grant \
-            --clientid ${{ secrets.SF_CONSUMER_KEY }} \
-            --jwtkeyfile server.key \
+          sf org login jwt \
+            --client-id ${{ secrets.SF_CONSUMER_KEY }} \
+            --jwt-key-file server.key \
             --username ${{ secrets.SF_USERNAME }} \
-            --instanceurl ${{ secrets.SF_LOGIN_URL }}
+            --instance-url ${{ secrets.SF_LOGIN_URL }}
 
       # Step 5: Deploy metadata to Salesforce ORG with tests
       - name: Deploy to Salesforce ORG
         run: |
-          sfdx force:source:deploy -p force-app -l RunLocalTests --json --loglevel error
+          sf project deploy start --source-dir force-app --test-level RunLocalTests --json
+
+
+          
