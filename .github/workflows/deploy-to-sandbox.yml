@@ -42,7 +42,6 @@ jobs:
       # Step 5: Deploy metadata to Salesforce ORG with tests
       - name: Deploy to Salesforce ORG
         run: |
-          sf project deploy start --source-dir force-app --test-level RunLocalTests --json
-
+          sf project deploy start --source-dir force-app --test-level RunLocalTests --target-org ${{ secrets.SF_USERNAME }} --json
 
           
