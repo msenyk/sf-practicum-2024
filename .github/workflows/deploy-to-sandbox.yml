@@ -18,9 +18,7 @@ jobs:
       # Step 2: Install Salesforce CLI
       - name: Install Salesforce CLI
         run: |
-          curl -sL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ
-          ./sfdx/install
-          export PATH=./sfdx/$(pwd):$PATH
+          sudo npm install --global sfdx-cli
 
       # Step 3: Decode the private key from GitHub Secrets
       - name: Decode Salesforce Private Key
