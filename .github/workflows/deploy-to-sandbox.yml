@@ -1,0 +1,42 @@
+name: Deploy to Salesforce Sandbox
+
+# Trigger the workflow on pushes to the `main` branch
+on:
+  push:
+    branches:
+      - main  # Change this if your deployment branch is different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Install Salesforce CLI
+      - name: Install Salesforce CLI
+        run: |
+          curl -sL https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz | tar xJ
+          ./sfdx/install
+          export PATH=./sfdx/$(pwd):$PATH
+
+      # Step 3: Decode the private key from GitHub Secrets
+      - name: Decode Salesforce Private Key
+        run: |
+          echo "${{ secrets.SF_SERVER_KEY }}" | base64 --decode > server.key
+
+      # Step 4: Authenticate to Salesforce using JWT
+      - name: Authenticate to Salesforce
+        run: |
+          sfdx auth:jwt:grant \
+            --clientid ${{ secrets.SF_CONSUMER_KEY }} \
+            --jwtkeyfile server.key \
+            --username ${{ secrets.SF_USERNAME }} \
+            --instanceurl ${{ secrets.SF_LOGIN_URL }}
+
+      # Step 5: Deploy metadata to Salesforce ORG with tests
+      - name: Deploy to Salesforce ORG
+        run: |
+          sfdx force:source:deploy -p force-app -l RunLocalTests --json --loglevel error
