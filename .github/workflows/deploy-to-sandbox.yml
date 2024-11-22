@@ -30,6 +30,17 @@ jobs:
       - name: Install Salesforce CLI
         run: npm install @salesforce/cli --global
 
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
+
+      - name: Validate XML Files
+        run: |
+          echo "Validating XML files for well-formedness..."
+          find force-app -name "*.xml" -print0 | while IFS= read -r -d '' file; do
+            echo "Checking $file"
+            xmllint --noout "$file" || exit 1
+          done
+
       # Step 4: Authenticate to Salesforce using JWT
       - name: Authenticate to Salesforce
         run: |
