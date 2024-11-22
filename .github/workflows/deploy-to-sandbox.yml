@@ -1,0 +1,47 @@
+name: Salesforce CRM Deploy
+
+# **What it does**: Deploys the project codebase to Salesforce
+
+run-name: Deploy started by @${{ github.actor }}
+on:
+  workflow_dispatch:
+    branches:
+      - master
+
+jobs:
+  validate_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.0.0'
+
+      # Step 3: Decode the private key from GitHub Secrets
+      - name: Decode Salesforce Private Key
+        run: |
+          echo "${{ secrets.SF_SERVER_KEY }}" | base64 --decode > server.key
+
+      - name: Install Salesforce CLI
+        run: npm install @salesforce/cli --global
+
+      # Step 4: Authenticate to Salesforce using JWT
+      - name: Authenticate to Salesforce
+        run: |
+          sf org login jwt \
+            --client-id ${{ secrets.SF_CONSUMER_KEY }} \
+            --jwt-key-file server.key \
+            --username ${{ secrets.SF_USERNAME }} \
+            --instance-url ${{ secrets.SF_LOGIN_URL }}
+
+      # Step 5: Deploy metadata to Salesforce ORG with tests
+      - name: Deploy to Salesforce ORG
+        run: |
+          sf project deploy start --source-dir force-app --test-level RunLocalTests --target-org ${{ secrets.SF_USERNAME }} --json
+
+          
