@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>Height__c</fullName>
+        <description>Height in centimeters</description>
+        <externalId>false</externalId>
+        <label>Height</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>

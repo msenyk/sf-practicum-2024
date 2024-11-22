@@ -1,0 +1,11 @@
+    <fields>
+        <fullName>Cell__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <label>Cell</label>
+        <referenceTo>Cell__c</referenceTo>
+        <relationshipLabel>Cell Orders</relationshipLabel>
+        <relationshipName>CellOrders</relationshipName>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>

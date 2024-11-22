@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>Pin__c</fullName>
+        <description>This should be a unique number among all cells orders</description>
+        <externalId>false</externalId>
+        <label>PIN</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>

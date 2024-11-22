@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>ParcelLocker__c</fullName>
+        <label>Parcel Locker</label>
+        <referenceTo>ParcelLocker__c</referenceTo>
+        <relationshipLabel>Cells</relationshipLabel>
+        <relationshipName>Cells</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>

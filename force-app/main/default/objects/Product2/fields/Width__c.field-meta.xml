@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>Width__c</fullName>
+        <description>Widths in centimeters</description>
+        <externalId>false</externalId>
+        <label>Width</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>

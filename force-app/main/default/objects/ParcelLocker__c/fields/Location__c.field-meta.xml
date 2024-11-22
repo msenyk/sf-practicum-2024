@@ -1,0 +1,10 @@
+    <fields>
+        <fullName>Location__c</fullName>
+        <description>This field represent geolocation of Parcel Locker</description>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <label>Location</label>
+        <required>true</required>
+        <scale>5</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>

@@ -154,61 +154,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>Cell__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <label>Cell</label>
-        <referenceTo>Cell__c</referenceTo>
-        <relationshipLabel>Cell Orders</relationshipLabel>
-        <relationshipName>CellOrders</relationshipName>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Contact__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <label>Contact</label>
-        <referenceTo>Contact</referenceTo>
-        <relationshipLabel>Cell Orders</relationshipLabel>
-        <relationshipName>Cell_Orders</relationshipName>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>State__c</fullName>
-        <label>Status</label>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>Pending delivery</fullName>
-                    <default>true</default>
-                    <label>Pending delivery</label>
-                </value>
-                <value>
-                    <fullName>Delivering</fullName>
-                    <default>false</default>
-                    <label>Delivering</label>
-                </value>
-                <value>
-                    <fullName>Delivered</fullName>
-                    <default>false</default>
-                    <label>Delivered</label>
-                </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
     <label>Cell Order</label>
     <nameField>
         <displayFormat>A-{0000}</displayFormat>

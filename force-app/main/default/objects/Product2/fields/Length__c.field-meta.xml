@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>Length__c</fullName>
+        <description>Length in centimeters</description>
+        <externalId>false</externalId>
+        <label>Length</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>

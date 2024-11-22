@@ -1,0 +1,7 @@
+    <fields>
+        <fullName>SLAExpirationDate__c</fullName>
+        <label>SLA Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>

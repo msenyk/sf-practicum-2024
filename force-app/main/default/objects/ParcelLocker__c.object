@@ -154,28 +154,6 @@
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
-    <fields>
-        <fullName>Location__c</fullName>
-        <description>This field represent geolocation of Parcel Locker</description>
-        <displayLocationInDecimal>true</displayLocationInDecimal>
-        <label>Location</label>
-        <required>true</required>
-        <scale>5</scale>
-        <trackTrending>false</trackTrending>
-        <type>Location</type>
-    </fields>
-    <fields>
-        <fullName>UniqueNumber__c</fullName>
-        <description>This is a unique number that identify Parcel Locker</description>
-        <externalId>true</externalId>
-        <label>Unique Number</label>
-        <precision>18</precision>
-        <required>true</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>true</unique>
-    </fields>
     <label>Parcel Locker</label>
     <nameField>
         <displayFormat>A-{0000}</displayFormat>

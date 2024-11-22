@@ -1,0 +1,12 @@
+    <fields>
+        <fullName>UniqueNumber__c</fullName>
+        <description>This is a unique number that identify Parcel Locker</description>
+        <externalId>true</externalId>
+        <label>Unique Number</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>true</unique>
+    </fields>
