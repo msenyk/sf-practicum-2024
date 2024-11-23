@@ -7,31 +7,31 @@ public without sharing class CellTriggerHandler implements TriggerHandler {
         this.triggerSize = triggerSize;
         this.helper = new CellTriggerHelper();
     }
-    public void beforeInsert(List<Account> newAccounts) {
+    public void beforeInsert(List<Cell__c> newCells) {
         // helper.doTask1();
         // helper.doTask2();
     }
-    public void beforeUpdate(List<Account> oldAccounts, List<Account> newAccounts, Map<ID, SObject> oldAccountMap, Map<ID, SObject> newAccountMap) {
+    public void beforeUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<ID, SObject> oldCellsMap, Map<ID, SObject> newCellsMap) {
         // helper.doTask3();
         // helper.doTask4();
     }
-    public void beforeDelete(List<Account> oldAccounts, Map<ID, SObject> oldAccountMap) {
+    public void beforeDelete(List<Cell__c> oldCells, Map<ID, SObject> oldCellsMap) {
         // helper.doTask5();
         // helper.doTask1();
     }
-    public void afterInsert(List<Account> newAccounts, Map<ID, SObject> newAccountMap) {
+    public void afterInsert(List<Cell__c> newCells, Map<ID, SObject> newCellsMap) {
         // helper.doTask2();
         // helper.doTask3();
     }
-    public void afterUpdate(List<Account> oldAccounts, List<Account> newAccounts, Map<ID, SObject> oldAccountMap, Map<ID, SObject> newAccountMap) {
+    public void afterUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<ID, SObject> oldCellsMap, Map<ID, SObject> newCellsMap) {
         // helper.doTask4();
         // helper.doTask5();
     }
-    public void afterDelete(List<Account> oldAccounts, Map<ID, SObject> oldAccountMap) {
+    public void afterDelete(List<Cell__c> oldCells, Map<ID, SObject> oldCellsMap) {
         // helper.doTask3();
         // helper.doTask1();
     }
-    public void afterUndelete(List<Account> newAccounts, Map<ID, SObject> newAccountMap) {
+    public void afterUndelete(List<Cell__c> newCells, Map<ID, SObject> newCellsMap) {
         // helper.doTask4();
         // helper.doTask2();
     }
