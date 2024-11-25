@@ -212,7 +212,7 @@
 
     Наприклад:
     
-    <code>
+   <code>
      trigger CellTrigger on Cell__c (before insert, before update, after insert, after update, after delete, after undelete) {
         TriggerHandler handler = new CellTriggerHandler(Trigger.isExecuting, Trigger.size);
         switch on Trigger.operationType {
@@ -244,7 +244,7 @@
     Використання Handler-класу (рекомендовано):
     Розділіть логіку тригера у спеціальний клас CellTriggerHandler, щоб зменшити складність та підвищити читабельність:
 
-    <code>
+   <code>
     public class CellTriggerHandler {
        public static void beforeInsert(List<Cell__c> newCells) {
            for (Cell__c cell : newCells) {
@@ -276,7 +276,7 @@
     
     Для деплою тригера потрібно створити юніт-тести, які покривають не менше 75% коду.
 
-    <code>
+   <code>
     @isTest
     private class CellTriggerTest {
         @isTest
@@ -286,10 +286,9 @@
                 new Cell__c(Latitude__c = 15.0, Longitude__c = 25.0)
             };
             insert cells;
-    
             System.assertEquals('Auto-generated description', cells[0].Description__c);
         }
     }
-    </code>
+   </code>
 
     В репозиторії проекту ви знайдете більш трохи складніший приклад реалізації паттерну для створення Apex Trigger.
