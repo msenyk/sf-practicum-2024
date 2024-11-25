@@ -21,16 +21,7 @@
   
    На прикладі приведеного шматка тестового класу
 
-   <style>
-    code {
-      font-family: Consolas,"courier new";
-      color: crimson;
-      background-color: #f1f1f1;
-      padding: 2px;
-      font-size: 105%;
-    }
-  </style>
-  
+  <div>
    <code>
      @isTest
      private class TestDataCreatorTest {
@@ -104,6 +95,7 @@
          }
      }
    </code>
+  </div>
 
    <h2>3. Як створити або редагувати Page Layout</h2>
    
@@ -154,60 +146,150 @@
 
 <h2>Як створити Lightning сторінку</h2>
     
-    У Salesforce перейдіть до Setup.
+    Перейдіть до Lightning App Builder:
+    
+    Для цього ерейдіть до Setup.
     У Quick Find Box введіть Lightning App Builder і оберіть його.
     Натисніть кнопку New:
     
     У Lightning App Builder натисніть New для створення нової сторінки.
-    
     Оберіть тип сторінки:
     
-      Вам буде запропоновано вибрати тип сторінки:
-      App Page: Сторінка для додатка.
-      Record Page: Сторінка для певного запису об'єкта.
-      Home Page: Домашня сторінка.
-      Для прикладу виберіть Record Page і натисніть Next.
-      
+    Вам буде запропоновано вибрати тип сторінки:
+    App Page: Сторінка для додатка.
+    Record Page: Сторінка для певного запису об'єкта.
+    Home Page: Домашня сторінка.
+    Для прикладу виберіть Record Page і натисніть Next.
     Виберіть об'єкт:
     
-      Виберіть об'єкт, для якого ви створюєте сторінку, наприклад, Account або Custom Object.
-      Натисніть Next.
-      
+    Виберіть об'єкт, для якого ви створюєте сторінку, наприклад, Account або Custom Object.
+    Натисніть Next.
     Оберіть макет сторінки:
     
     Salesforce пропонує кілька готових макетів:
-      Full-Width: Одна секція на всю ширину.
-      Two Regions: Дві секції.
-      Three Regions: Три секції з різними розмірами.
-      Виберіть макет і натисніть Finish.
-      
+    Full-Width: Одна секція на всю ширину.
+    Two Regions: Дві секції.
+    Three Regions: Три секції з різними розмірами.
+    Виберіть макет і натисніть Finish.
     Додайте компоненти на сторінку:
     
-      У правій панелі виберіть доступні компоненти (наприклад, Highlights Panel, Record Details, Related Lists).
-      Перетягніть потрібні компоненти на сторінку.
-    
+    У правій панелі виберіть доступні компоненти (наприклад, Highlights Panel, Record Details, Related Lists).
+    Перетягніть потрібні компоненти на сторінку.
     Налаштуйте компоненти:
     
-      Клацніть на компонент, щоб налаштувати його властивості (наприклад, видимість, фільтри, макет полів).
-    
+    Клацніть на компонент, щоб налаштувати його властивості (наприклад, видимість, фільтри, макет полів).
     Попередній перегляд сторінки:
     
-      Використовуйте кнопку Preview, щоб перевірити, як виглядає сторінка.
-      Збережіть і активуйте сторінку:
+    Використовуйте кнопку Preview, щоб перевірити, як виглядає сторінка.
+    Збережіть і активуйте сторінку:
     
     Натисніть Save, щоб зберегти сторінку.
-    
     Натисніть Activate, щоб зробити сторінку доступною:
-    
-      Встановіть сторінку як Org Default, App Default або Record Type Default.
-      Приклад створення Lightning сторінки для об'єкта Cell__c
-      Виберіть Record Page для об'єкта Cell__c.
-      
+    Встановіть сторінку як Org Default, App Default або Record Type Default.
+    Приклад створення Lightning сторінки для об'єкта Cell__c
+    Виберіть Record Page для об'єкта Cell__c.
     Додайте наступні компоненти:
+    Highlights Panel (для відображення ключової інформації).
+    Record Details (для перегляду полів запису).
+    Related List - Single (наприклад, список пов'язаних Opportunities або Contacts).
+    Збережіть сторінку та активуйте її як Org Default.
+
+<h2>Apex Trigger</h2>
     
-      Highlights Panel (для відображення ключової інформації).
-      Record Details (для перегляду полів запису).
-      Related List - Single (наприклад, список пов'язаних Opportunities або Contacts).
-      Збережіть сторінку та активуйте її як Org Default.
-      Поради
-      Використовуйте Dynamic Visibility, щоб показувати компоненти лише для певних профілів або умов.
+    Увійдіть у Salesforce.
+    Клацніть на своєму аватарі у верхньому правому куті.
+    Виберіть Developer Console.
+    
+    Створіть новий Trigger:
+    
+    У Developer Console перейдіть до File > New > Apex Trigger.
+    У діалоговому вікні введіть:
+    Ім'я тригера, наприклад, CellTrigger.
+    Виберіть об'єкт, наприклад, Cell__c.
+    Натисніть Submit.
+    
+    Напишіть код Trigger
+
+    Наприклад:
+    
+    <code>
+     trigger CellTrigger on Cell__c (before insert, before update, after insert, after update, after delete, after undelete) {
+        TriggerHandler handler = new CellTriggerHandler(Trigger.isExecuting, Trigger.size);
+        switch on Trigger.operationType {
+            when BEFORE_INSERT {
+                // handler.beforeInsert(Trigger.new);
+            }
+            when BEFORE_UPDATE {
+                // handler.beforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
+            }
+            when BEFORE_DELETE {
+                // handler.beforeDelete(Trigger.old, Trigger.oldMap);
+            }
+            when AFTER_INSERT {
+                // handler.afterInsert(Trigger.new, Trigger.newMap);
+            }
+            when AFTER_UPDATE {
+                // handler.afterUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
+            }
+            when AFTER_DELETE {
+                // handler.afterDelete(Trigger.old, Trigger.oldMap);
+            }
+            when AFTER_UNDELETE {
+                // handler.afterUndelete(Trigger.new, Trigger.newMap);
+            }
+        }
+    }
+    </code>
+
+    Використання Handler-класу (рекомендовано):
+    Розділіть логіку тригера у спеціальний клас CellTriggerHandler, щоб зменшити складність та підвищити читабельність:
+
+    <code>
+    public class CellTriggerHandler {
+       public static void beforeInsert(List<Cell__c> newCells) {
+           for (Cell__c cell : newCells) {
+               cell.Description__c = 'Auto-generated description';
+           }
+       }
+       public static void beforeUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<Id, Cell__c> oldMap, Map<Id, Cell__c> newMap) {
+           System.debug('Before Update Trigger Executed');
+       }
+       public static void afterInsert(List<Cell__c> newCells, Map<Id, Cell__c> newMap) {
+           System.debug('After Insert Trigger Executed');
+       }
+       public static void afterUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<Id, Cell__c> oldMap, Map<Id, Cell__c> newMap) {
+           System.debug('After Update Trigger Executed');
+       }
+       public static void afterDelete(List<Cell__c> oldCells, Map<Id, Cell__c> oldMap) {
+           System.debug('After Delete Trigger Executed');
+       }
+       public static void afterUndelete(List<Cell__c> newCells, Map<Id, Cell__c> newMap) {
+           System.debug('After Undelete Trigger Executed');
+       }
+    }
+    </code>
+
+    Збережіть тригер:
+    Натисніть File > Save у Developer Console.
+
+    Тестування
+    
+    Для деплою тригера потрібно створити юніт-тести, які покривають не менше 75% коду.
+
+    <code>
+    @isTest
+    private class CellTriggerTest {
+        @isTest
+        static void testBeforeInsert() {
+            List<Cell__c> cells = new List<Cell__c>{
+                new Cell__c(Latitude__c = 10.0, Longitude__c = 20.0),
+                new Cell__c(Latitude__c = 15.0, Longitude__c = 25.0)
+            };
+            insert cells;
+    
+            System.assertEquals('Auto-generated description', cells[0].Description__c);
+        }
+    }
+    </code>
+
+    В репозиторії проекту ви знайдете більш трохи складніший приклад реалізації паттерну для створення Apex Trigger.
