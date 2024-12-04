@@ -156,12 +156,11 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Parcel Locker</label>
     <nameField>
-        <displayFormat>A-{0000}</displayFormat>
         <label>Parcel Locker Name</label>
-        <type>AutoNumber</type>
+        <type>Text</type>
     </nameField>
     <pluralLabel>Parcel Lockers</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
