@@ -156,12 +156,12 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>Cell</label>
     <nameField>
-        <displayFormat>A-{0000}</displayFormat>
+        <displayFormat>С-{000}</displayFormat>
         <label>Cell Name</label>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Cells</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

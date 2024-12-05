@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Pin__c</fullName>
-    <description>This should be a unique number among all cells orders</description>
+    <fullName>Sub_Row__c</fullName>
     <externalId>false</externalId>
-    <label>PIN</label>
-    <precision>6</precision>
+    <label>Sub-Row (0-2)</label>
+    <precision>1</precision>
     <required>false</required>
     <scale>0</scale>
     <trackTrending>false</trackTrending>
