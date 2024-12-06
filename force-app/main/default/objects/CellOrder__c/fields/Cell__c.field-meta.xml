@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Cell__c</fullName>
-        <deleteConstraint>Restrict</deleteConstraint>
-        <label>Cell</label>
-        <referenceTo>Cell__c</referenceTo>
-        <relationshipLabel>Cell Orders</relationshipLabel>
-        <relationshipName>CellOrders</relationshipName>
-        <required>true</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+    <fullName>Cell__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <label>Cell</label>
+    <referenceTo>Cell__c</referenceTo>
+    <relationshipLabel>Cell Orders</relationshipLabel>
+    <relationshipName>CellOrders</relationshipName>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
 </CustomField>

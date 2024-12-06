@@ -161,7 +161,7 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Cell Orders</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts></searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
