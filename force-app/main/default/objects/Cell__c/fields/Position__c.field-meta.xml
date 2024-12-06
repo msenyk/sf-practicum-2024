@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Position__c</fullName>
+    <label>Position</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>A-1</fullName>
+                <default>false</default>
+                <label>A-1</label>
+            </value>
+            <value>
+                <fullName>A-2</fullName>
+                <default>false</default>
+                <label>A-2</label>
+            </value>
+            <value>
+                <fullName>A-3</fullName>
+                <default>false</default>
+                <label>A-3</label>
+            </value>
+            <value>
+                <fullName>A-4 (A-1)</fullName>
+                <default>false</default>
+                <label>A-4 (A-1)</label>
+            </value>
+            <value>
+                <fullName>A-4 (A-2)</fullName>
+                <default>false</default>
+                <label>A-4 (A-2)</label>
+            </value>
+            <value>
+                <fullName>A-4 (A-3)</fullName>
+                <default>false</default>
+                <label>A-4 (A-3)</label>
+            </value>
+            <value>
+                <fullName>A-4 (B-1)</fullName>
+                <default>false</default>
+                <label>A-4 (B-1)</label>
+            </value>
+            <value>
+                <fullName>A-4 (B-2)</fullName>
+                <default>false</default>
+                <label>A-4 (B-2)</label>
+            </value>
+            <value>
+                <fullName>A-4 (B-3)</fullName>
+                <default>false</default>
+                <label>A-4 (B-3)</label>
+            </value>
+            <value>
+                <fullName>A-5</fullName>
+                <default>false</default>
+                <label>A-5</label>
+            </value>
+            <value>
+                <fullName>A-6</fullName>
+                <default>false</default>
+                <label>A-6</label>
+            </value>
+            <value>
+                <fullName>B-1</fullName>
+                <default>false</default>
+                <label>B-1</label>
+            </value>
+            <value>
+                <fullName>B-2</fullName>
+                <default>false</default>
+                <label>B-2</label>
+            </value>
+            <value>
+                <fullName>B-3</fullName>
+                <default>false</default>
+                <label>B-3</label>
+            </value>
+            <value>
+                <fullName>B-4 (A-1)</fullName>
+                <default>false</default>
+                <label>B-4 (A-1)</label>
+            </value>
+            <value>
+                <fullName>B-4 (A-2)</fullName>
+                <default>false</default>
+                <label>B-4 (A-2)</label>
+            </value>
+            <value>
+                <fullName>B-4 (A-3)</fullName>
+                <default>false</default>
+                <label>B-4 (A-3)</label>
+            </value>
+            <value>
+                <fullName>B-4 (B-1)</fullName>
+                <default>false</default>
+                <label>B-4 (B-1)</label>
+            </value>
+            <value>
+                <fullName>B-4 (B-2)</fullName>
+                <default>false</default>
+                <label>B-4 (B-2)</label>
+            </value>
+            <value>
+                <fullName>B-4 (B-3)</fullName>
+                <default>false</default>
+                <label>B-4 (B-3)</label>
+            </value>
+            <value>
+                <fullName>B-5</fullName>
+                <default>false</default>
+                <label>B-5</label>
+            </value>
+            <value>
+                <fullName>B-6 (A-1)</fullName>
+                <default>false</default>
+                <label>B-6 (A-1)</label>
+            </value>
+            <value>
+                <fullName>B-6 (A-2)</fullName>
+                <default>false</default>
+                <label>B-6 (A-2)</label>
+            </value>
+            <value>
+                <fullName>B-6 (A-3)</fullName>
+                <default>false</default>
+                <label>B-6 (A-3)</label>
+            </value>
+            <value>
+                <fullName>C-1</fullName>
+                <default>false</default>
+                <label>C-1</label>
+            </value>
+            <value>
+                <fullName>C-2</fullName>
+                <default>false</default>
+                <label>C-2</label>
+            </value>
+            <value>
+                <fullName>C-3</fullName>
+                <default>false</default>
+                <label>C-3</label>
+            </value>
+            <value>
+                <fullName>C-4 (A-1)</fullName>
+                <default>false</default>
+                <label>C-4 (A-1)</label>
+            </value>
+            <value>
+                <fullName>C-4 (A-2)</fullName>
+                <default>false</default>
+                <label>C-4 (A-2)</label>
+            </value>
+            <value>
+                <fullName>C-4 (A-3)</fullName>
+                <default>false</default>
+                <label>C-4 (A-3)</label>
+            </value>
+            <value>
+                <fullName>C-4 (B-1)</fullName>
+                <default>false</default>
+                <label>C-4 (B-1)</label>
+            </value>
+            <value>
+                <fullName>C-4 (B-2)</fullName>
+                <default>false</default>
+                <label>C-4 (B-2)</label>
+            </value>
+            <value>
+                <fullName>C-4 (B-3)</fullName>
+                <default>false</default>
+                <label>C-4 (B-3)</label>
+            </value>
+            <value>
+                <fullName>C-5</fullName>
+                <default>false</default>
+                <label>C-5</label>
+            </value>
+            <value>
+                <fullName>C-6</fullName>
+                <default>false</default>
+                <label>C-6</label>
+            </value>
+            <value>
+                <fullName>D-1</fullName>
+                <default>false</default>
+                <label>D-1</label>
+            </value>
+            <value>
+                <fullName>D-2</fullName>
+                <default>false</default>
+                <label>D-2</label>
+            </value>
+            <value>
+                <fullName>D-3</fullName>
+                <default>false</default>
+                <label>D-3</label>
+            </value>
+            <value>
+                <fullName>D-4 (A-1)</fullName>
+                <default>false</default>
+                <label>D-4 (A-1)</label>
+            </value>
+            <value>
+                <fullName>D-4 (A-2)</fullName>
+                <default>false</default>
+                <label>D-4 (A-2)</label>
+            </value>
+            <value>
+                <fullName>D-4 (A-3)</fullName>
+                <default>false</default>
+                <label>D-4 (A-3)</label>
+            </value>
+            <value>
+                <fullName>D-4 (B-1)</fullName>
+                <default>false</default>
+                <label>D-4 (B-1)</label>
+            </value>
+            <value>
+                <fullName>D-4 (B-2)</fullName>
+                <default>false</default>
+                <label>D-4 (B-2)</label>
+            </value>
+            <value>
+                <fullName>D-4 (B-3)</fullName>
+                <default>false</default>
+                <label>D-4 (B-3)</label>
+            </value>
+            <value>
+                <fullName>D-5</fullName>
+                <default>false</default>
+                <label>D-5</label>
+            </value>
+            <value>
+                <fullName>D-6 (A-1)</fullName>
+                <default>false</default>
+                <label>D-6 (A-1)</label>
+            </value>
+            <value>
+                <fullName>D-6 (A-2)</fullName>
+                <default>false</default>
+                <label>D-6 (A-2)</label>
+            </value>
+            <value>
+                <fullName>D-6 (A-3)</fullName>
+                <default>false</default>
+                <label>D-6 (A-3)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

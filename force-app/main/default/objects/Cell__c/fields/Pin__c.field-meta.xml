@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-        <fullName>Pin__c</fullName>
-        <description>This should be a unique number among all cells orders</description>
-        <externalId>false</externalId>
-        <label>PIN</label>
-        <precision>6</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
+    <fullName>Pin__c</fullName>
+    <description>This should be a unique number among all cells orders</description>
+    <externalId>false</externalId>
+    <label>PIN</label>
+    <precision>6</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
 </CustomField>
