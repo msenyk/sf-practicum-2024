@@ -20,11 +20,11 @@ public without sharing class ParcelLockerTriggerHelper {
             if (pl.Name != null) {
                 // Check duplicates in inserted records
                 if (nameCountMap.get(pl.Name) > 1) {
-                    pl.addError('Parcel locker with the name "' + pl.Name + '" is not unique among the entries being inserted.');
+                    pl.Name.addError('Parcel locker with the name "' + pl.Name + '" is not unique among the entries being inserted.');
                 }
                 // Check duplicates in existing records
                 else if (existingNamesMap.containsKey(pl.Name) && existingNamesMap.get(pl.Name) != pl.Id) {
-                    pl.addError('Parcel Locker with the name "' + pl.Name + '" already exists.');
+                    pl.Name.addError('Parcel Locker with the name "' + pl.Name + '" already exists.');
                 }
             }
         }
