@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sizes_must_not_be_empty</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+     ISPICKVAL( Status, &quot;Activated&quot; ),
+     OR(
+          ISBLANK( Parcel_Width__c ),
+          ISBLANK( Parcel_Height__c ),
+          ISBLANK( Parcel_Depth__c ) 
+     )
+)</errorConditionFormula>
+    <errorDisplayField>Status</errorDisplayField>
+    <errorMessage>All sizes of box (parcel) must be filled.</errorMessage>
+</ValidationRule>
