@@ -3,7 +3,7 @@ public without sharing class ParcelLockerTriggerHelper {
     public void checkUniqueNames(List<ParcelLocker__c> newRecords) {
         Map<String, Integer> nameCountMap = new Map<String, Integer>();
         for (ParcelLocker__c pl : newRecords) {
-            if (pl.Name != null) {
+            if (String.isNotBlank(pl.Name)) {
                 if (!nameCountMap.containsKey(pl.Name)) {
                     nameCountMap.put(pl.Name, 0);
                 }
@@ -17,7 +17,7 @@ public without sharing class ParcelLockerTriggerHelper {
         }
         // Check if the names are unique
         for (ParcelLocker__c pl : newRecords) {
-            if (pl.Name != null) {
+            if (String.isNotBlank(pl.Name)) {
                 // Check duplicates in inserted records
                 if (nameCountMap.get(pl.Name) > 1) {
                     pl.Name.addError('Parcel locker with the name "' + pl.Name + '" is not unique among the entries being inserted.');
