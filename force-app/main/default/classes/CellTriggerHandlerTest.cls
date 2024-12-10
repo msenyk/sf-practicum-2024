@@ -2,9 +2,9 @@
 public class CellTriggerHandlerTest {
     // Utility method to create test data
     private static Cell__c createTestCell() {
-        ParcelLocker__c locker = new ParcelLocker__c(UniqueNumber__c = 123, Location__Latitude__s = 37.7749, Location__Longitude__s = -122.4194);
+        ParcelLocker__c locker = new ParcelLocker__c(Name = '123', Location__Latitude__s = 37.7749, Location__Longitude__s = -122.4194);
         insert locker;
-        return new Cell__c(ParcelLocker__c = locker.Id, Availability__c = 'Empty', Status__c = 'Closed'); // Include required fields other than Name, if any
+        return new Cell__c(ParcelLocker__c = locker.Id, Availability__c = 'Empty', Status__c = 'Closed', Position__c = 'A-1', Size__c = 'Small'); // Include required fields other than Name, if any
     }
 
     @isTest
