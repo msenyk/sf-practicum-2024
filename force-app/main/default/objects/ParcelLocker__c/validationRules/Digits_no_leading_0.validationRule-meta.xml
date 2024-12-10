@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Digits_no_leading_0</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK( Name )),
+    OR(
+       NOT(ISNUMBER( Name )),
+       LEFT( Name, 1) = &quot;0&quot;
+    )
+)</errorConditionFormula>
+    <errorMessage>The parcel locker name must be only digits and no leading 0.</errorMessage>
+</ValidationRule>
