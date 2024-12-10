@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Parcel_Depth__c</fullName>
     <externalId>false</externalId>
-    <label>Parcel_Depth</label>
+    <label>Parcel Depth</label>
     <precision>7</precision>
     <required>false</required>
     <scale>2</scale>

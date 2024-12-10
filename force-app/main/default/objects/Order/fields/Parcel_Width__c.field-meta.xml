@@ -3,7 +3,7 @@
     <fullName>Parcel_Width__c</fullName>
     <description>Field stores the width of box (parcel).</description>
     <externalId>false</externalId>
-    <label>Parcel_Width</label>
+    <label>Parcel Width</label>
     <precision>7</precision>
     <required>false</required>
     <scale>2</scale>

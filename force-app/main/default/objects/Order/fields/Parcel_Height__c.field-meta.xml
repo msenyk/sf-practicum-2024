@@ -3,7 +3,7 @@
     <fullName>Parcel_Height__c</fullName>
     <description>Field stores the height of box (parcel).</description>
     <externalId>false</externalId>
-    <label>Parcel_Height</label>
+    <label>Parcel Height</label>
     <precision>7</precision>
     <required>false</required>
     <scale>2</scale>
