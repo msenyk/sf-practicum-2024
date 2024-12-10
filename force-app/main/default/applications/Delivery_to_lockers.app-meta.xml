@@ -21,5 +21,4 @@
     <tabs>standard-Order</tabs>
     <tabs>ParcelLocker__c</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>Delivery_to_lockers_UtilityBar</utilityBar>
 </CustomApplication>
