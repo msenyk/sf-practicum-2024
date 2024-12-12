@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Disallow_populating_Cell_field</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(ISPICKVAL(State__c, &apos;Pending delivery&apos;), ISPICKVAL(State__c, &apos;Delivering&apos;)),
+    NOT(ISBLANK(Cell__c))
+)</errorConditionFormula>
+    <errorDisplayField>Cell__c</errorDisplayField>
+    <errorMessage>You cannot specify a Cell for Pending delivery or Delivering status</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lock_fields_after_delivery_completed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Delivered&apos;), ISPICKVAL(State__c, &apos;Completed&apos;)),
+        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Completed&apos;), ISPICKVAL(State__c, &apos;Delivered&apos;)),
+        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Delivered&apos;), ISPICKVAL(State__c, &apos;Delivered&apos;)),
+        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Completed&apos;), ISPICKVAL(State__c, &apos;Completed&apos;))
+    ),
+    OR(ISCHANGED(Cell__c), ISCHANGED(Order__c), ISCHANGED(ParcelLocker__c), ISCHANGED(Contact__c))
+)</errorConditionFormula>
+    <errorDisplayField>State__c</errorDisplayField>
+    <errorMessage>Fields cannot be edited after delivery is completed</errorMessage>
+</ValidationRule>
