@@ -6,8 +6,13 @@
     NOT(ISBLANK( Name )),
     OR(
        NOT(ISNUMBER( Name )),
-       LEFT( Name, 1) = &quot;0&quot;
+       LEFT( Name, 1) = &quot;0&quot;,
+       Contains( Name, &apos;-&apos;),
+       Contains( Name, &apos;+&apos;),
+       Contains( Name, &apos;.&apos;),
+       Contains( Name, &apos;,&apos;)
     )
 )</errorConditionFormula>
+    <errorDisplayField>Name</errorDisplayField>
     <errorMessage>The parcel locker name must be only digits and no leading 0.</errorMessage>
 </ValidationRule>
