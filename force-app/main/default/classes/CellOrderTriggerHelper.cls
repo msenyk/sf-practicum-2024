@@ -1,42 +1,34 @@
 public with sharing class CellOrderTriggerHelper {
-    public void validateParcelDimensions(List<CellOrder__c> newOrders) {
-        // Collecting all Ids for queries
-        Set<Id> cellIds = new Set<Id>();
-        Set<Id> orderIds = new Set<Id>();
-        
-        for (CellOrder__c cellOrder : newOrders) {
-            cellIds.add(cellOrder.Cell__c);
-            orderIds.add(cellOrder.Order__c);
-        }
-        
-        Map<Id, Cell__c> cellsMap = new Map<Id, Cell__c>(
-            [SELECT Width__c, Height__c, Depth__c FROM Cell__c WHERE Id IN :cellIds]
-        );
-        
-        Map<Id, Order> ordersMap = new Map<Id, Order>(
-            [SELECT Parcel_Width__c, Parcel_Height__c, Parcel_Depth__c FROM Order WHERE Id IN :orderIds]
-        );
-        
-        for (CellOrder__c cellOrder : newOrders) {
-            Cell__c cell = cellsMap.get(cellOrder.Cell__c);
-            Order order = ordersMap.get(cellOrder.Order__c);
+    public void validateParcelDimensions(List<CellOrder__c> newOrders, Map<ID, SObject> newOrdersMap) {
+        // Collecting all orders
+        List<CellOrder__c> queriedOrders = [
+            SELECT Id,
+                   Cell__r.Width__c, Cell__r.Height__c, Cell__r.Depth__c,
+                   Order__r.Parcel_Width__c, Order__r.Parcel_Height__c, Order__r.Parcel_Depth__c
+            FROM CellOrder__c
+            WHERE Id IN :newOrders
+        ]; 
+        for (CellOrder__c cellOrder : queriedOrders) {
             
-            //If Cell or Order is empty
-            if (cell == null || order == null) {
+            // If Cell or Order is empty
+            if (cellOrder.Cell__r.Id == null || cellOrder.Order__r.Id == null) {
                 continue;
             }
             
+            Cell__c cell = cellOrder.Cell__r;
+            Order order = cellOrder.Order__r;
+
             // Parcel dimensions
             Decimal parcelWidth = order.Parcel_Width__c;
             Decimal parcelHeight = order.Parcel_Height__c;
             Decimal parcelDepth = order.Parcel_Depth__c;
-            
+
             // Cell dimensions
             Decimal cellWidth = cell.Width__c;
             Decimal cellHeight = cell.Height__c;
             Decimal cellDepth = cell.Depth__c;
             
-            // Check orientation 
+            // Check orientation
             Boolean fits = (
                 (parcelDepth <= cellDepth && parcelWidth <= cellWidth && parcelHeight <= cellHeight) ||
                 (parcelDepth <= cellDepth && parcelHeight <= cellWidth && parcelWidth <= cellHeight) ||
@@ -45,11 +37,12 @@ public with sharing class CellOrderTriggerHelper {
                 (parcelHeight <= cellDepth && parcelWidth <= cellWidth && parcelDepth <= cellHeight) ||
                 (parcelHeight <= cellDepth && parcelDepth <= cellWidth && parcelWidth <= cellHeight)
             );
-            
+
             // If the parcel dimensions doesn't fit
             if (!fits) {
-                cellOrder.Cell__c.addError('This cell is not large enough to store this package.');
+                CellOrder__c newOrder = (CellOrder__c) newOrdersMap.get(cellOrder.Id);
+                newOrder.Cell__c.addError('This cell is not large enough to store this package.');
             }
         }
-    }
+    }  
 }

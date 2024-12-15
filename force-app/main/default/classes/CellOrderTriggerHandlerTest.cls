@@ -1,7 +1,7 @@
 @isTest
 public class CellOrderTriggerHandlerTest {
     @isTest
-    static void testBeforeInsert() {
+    static void testAfterInsert() {
         // Arrange
         ParcelLocker__c locker = new ParcelLocker__c(Name = '123', Location__Latitude__s = 37.7749, Location__Longitude__s = -122.4194);
         insert locker;
@@ -30,25 +30,30 @@ public class CellOrderTriggerHandlerTest {
     	insert order;
 
         CellOrder__c cellOrder = new CellOrder__c(
+            ParcelLocker__c = locker.Id,
             Cell__c = cell.Id,
             Order__c = order.Id,
             Contact__c = contact.Id,
-            State__c = 'Pending delivery'
+            State__c = 'Delivered'
     	);
-
+        // Disabling the trigger while testing
+        CellOrderTriggerHandler.triggerIsDisabled = true;
+		insert cellOrder;
 		CellOrderTriggerHandler handler = new CellOrderTriggerHandler(true, 1);
+        List<CellOrder__c> cellOrders = new List<CellOrder__c>{cellOrder};
+        Map<Id, CellOrder__c> cellOrdersMap = new Map<Id, CellOrder__c>(cellOrders);
         
         // Act
         Test.startTest();
-        handler.beforeInsert(new List<CellOrder__c>{cellOrder});
+        handler.afterInsert(cellOrders, cellOrdersMap);
         Test.stopTest();
             
         // Assert
-        System.assertEquals(0, cellOrder.getErrors().size(), 'No error should occur for valid dimensions.');
+        System.assertEquals(0, cellOrders[0].getErrors().size(), 'No error should occur for valid dimensions.');
     }
     
     @isTest
-    static void testBeforeUpdate() {
+    static void testAfterUpdate() {
         // Arrange
         ParcelLocker__c locker = new ParcelLocker__c(Name = '123', Location__Latitude__s = 37.7749, Location__Longitude__s = -122.4194);
         insert locker;
@@ -77,7 +82,7 @@ public class CellOrderTriggerHandlerTest {
     	insert existingOrder;
 
         CellOrder__c existingCellOrder = new CellOrder__c(
-            Cell__c = cell.Id,
+            ParcelLocker__c = locker.Id,
             Order__c = existingOrder.Id,
             Contact__c = contact.Id,
             State__c = 'Pending delivery'
@@ -93,11 +98,13 @@ public class CellOrderTriggerHandlerTest {
             EffectiveDate = Date.today(),
             Status = 'Draft'
         );
+        // Disabling the trigger while testing
+        CellOrderTriggerHandler.triggerIsDisabled = true;
         insert newOrder;
-        
         CellOrder__c updatedCellOrder = existingCellOrder;
         updatedCellOrder.Order__c = newOrder.Id;
-       
+       	update updatedCellOrder;
+        
         List<CellOrder__c> oldCellOrders = new List<CellOrder__c>{existingCellOrder};
         List<CellOrder__c> newCellOrders = new List<CellOrder__c>{updatedCellOrder};
         
@@ -108,7 +115,7 @@ public class CellOrderTriggerHandlerTest {
         
         // Act
         Test.startTest();
-        handler.beforeUpdate(oldCellOrders, newCellOrders, oldCellOrdersMap, newCellOrdersMap);
+        handler.afterUpdate(oldCellOrders, newCellOrders, oldCellOrdersMap, newCellOrdersMap);
         Test.stopTest();
         
         // Assert
