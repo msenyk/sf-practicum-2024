@@ -4,10 +4,9 @@
     <description>This should be a unique number among all cells orders</description>
     <externalId>false</externalId>
     <label>PIN</label>
-    <precision>6</precision>
+    <length>6</length>
     <required>false</required>
-    <scale>0</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
+    <type>Text</type>
     <unique>false</unique>
 </CustomField>
