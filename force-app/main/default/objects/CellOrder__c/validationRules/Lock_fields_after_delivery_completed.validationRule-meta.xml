@@ -4,10 +4,8 @@
     <active>true</active>
     <errorConditionFormula>AND(
     OR(
-        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Delivered&apos;), ISPICKVAL(State__c, &apos;Completed&apos;)),
-        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Completed&apos;), ISPICKVAL(State__c, &apos;Delivered&apos;)),
-        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Delivered&apos;), ISPICKVAL(State__c, &apos;Delivered&apos;)),
-        AND(ISPICKVAL(PRIORVALUE(State__c), &apos;Completed&apos;), ISPICKVAL(State__c, &apos;Completed&apos;))
+        ISPICKVAL(PRIORVALUE(State__c), &apos;Delivered&apos;),
+        ISPICKVAL(PRIORVALUE(State__c), &apos;Completed&apos;)
     ),
     OR(ISCHANGED(Cell__c), ISCHANGED(Order__c), ISCHANGED(ParcelLocker__c), ISCHANGED(Contact__c))
 )</errorConditionFormula>
