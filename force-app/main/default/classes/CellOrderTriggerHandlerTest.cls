@@ -89,24 +89,14 @@ public class CellOrderTriggerHandlerTest {
     	);
         insert existingCellOrder;
         
-        Order newOrder = new Order(
-            AccountId = account.Id,
-            ContractId = contract.Id,
-            Parcel_Width__c = 15,
-            Parcel_Height__c = 9,
-            Parcel_Depth__c = 47,
-            EffectiveDate = Date.today(),
-            Status = 'Draft'
-        );
         // Disabling the trigger while testing
         CellOrderTriggerHandler.triggerIsDisabled = true;
-        insert newOrder;
-        CellOrder__c updatedCellOrder = existingCellOrder;
-        updatedCellOrder.Order__c = newOrder.Id;
-       	update updatedCellOrder;
+        existingOrder.Parcel_Width__c = 15;
+        existingOrder.Parcel_Height__c = 9;
+        existingOrder.Parcel_Depth__c = 47;
         
         List<CellOrder__c> oldCellOrders = new List<CellOrder__c>{existingCellOrder};
-        List<CellOrder__c> newCellOrders = new List<CellOrder__c>{updatedCellOrder};
+        List<CellOrder__c> newCellOrders = new List<CellOrder__c>{existingCellOrder};
         
         Map<Id, CellOrder__c> oldCellOrdersMap = new Map<Id, CellOrder__c>(oldCellOrders);
         Map<Id, CellOrder__c> newCellOrdersMap = new Map<Id, CellOrder__c>(newCellOrders);

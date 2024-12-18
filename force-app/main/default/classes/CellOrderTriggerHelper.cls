@@ -11,7 +11,7 @@ public with sharing class CellOrderTriggerHelper {
         for (CellOrder__c cellOrder : queriedOrders) {
             
             // If Cell or Order is empty
-            if (cellOrder.Cell__r.Id == null || cellOrder.Order__r.Id == null) {
+            if (cellOrder.Cell__r.Id == null) {
                 continue;
             }
             
