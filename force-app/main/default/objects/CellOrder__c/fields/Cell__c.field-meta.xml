@@ -6,7 +6,7 @@
     <referenceTo>Cell__c</referenceTo>
     <relationshipLabel>Cell Orders</relationshipLabel>
     <relationshipName>CellOrders</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
 </CustomField>
