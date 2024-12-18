@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Require_Cell_for_delivered_status</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    OR(
+        ISPICKVAL(State__c, &apos;Delivered&apos;),
+        ISPICKVAL(State__c, &apos;Completed&apos;)
+    ),
+    ISBLANK(Cell__c)
+)</errorConditionFormula>
+    <errorDisplayField>Cell__c</errorDisplayField>
+    <errorMessage>Cell must be populated for Delivered and Completed status</errorMessage>
+</ValidationRule>
