@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Occupied_Volume__c</fullName>
+    <label>Total Occupied Volume</label>
+    <summarizedField>Cell__c.Volume__c</summarizedField>
+    <summaryFilterItems>
+        <field>Cell__c.Availability__c</field>
+        <operation>equals</operation>
+        <value>Full</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Cell__c.ParcelLocker__c</summaryForeignKey>
+    <summaryOperation>sum</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
