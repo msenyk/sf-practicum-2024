@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Report xmlns="http://soap.sforce.com/2006/04/metadata">
     <columns>
-        <field>ParcelLocker__c.Cells__r$Name</field>
+        <field>ParcelLocker__c.Cell_Orders__r$Name</field>
     </columns>
     <columns>
-        <field>ParcelLocker__c.Cells__r.CellOrders__r$Name</field>
-    </columns>
-    <columns>
-        <field>ParcelLocker__c.Cells__r.CellOrders__r$State__c</field>
+        <field>ParcelLocker__c.Cell_Orders__r$State__c</field>
     </columns>
     <filter>
         <criteriaItems>
-            <column>ParcelLocker__c.Cells__r.CellOrders__r$State__c</column>
+            <column>ParcelLocker__c.Cell_Orders__r$State__c</column>
             <columnToColumn>false</columnToColumn>
             <isUnlocked>true</isUnlocked>
             <operator>equals</operator>
-            <value>Pending delivery,Delivering</value>
+            <value>Pending delivery</value>
         </criteriaItems>
     </filter>
     <format>Summary</format>
@@ -30,12 +27,12 @@
         <value>1</value>
     </params>
     <reportType>Parcel_Lockers__c</reportType>
-    <scope>user</scope>
+    <scope>organization</scope>
     <showDetails>true</showDetails>
     <showGrandTotal>true</showGrandTotal>
     <showSubTotals>true</showSubTotals>
     <timeFrameFilter>
         <dateColumn>ParcelLocker__c$CreatedDate</dateColumn>
-        <interval>INTERVAL_CURRENT</interval>
+        <interval>INTERVAL_CUSTOM</interval>
     </timeFrameFilter>
 </Report>
