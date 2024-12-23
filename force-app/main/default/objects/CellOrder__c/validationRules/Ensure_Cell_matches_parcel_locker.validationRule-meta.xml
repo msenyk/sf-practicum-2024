@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Ensure_Cell_matches_parcel_locker</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+  NOT(ISBLANK(Cell__c)),
+  Cell__r.ParcelLocker__c &lt;&gt; ParcelLocker__c
+)</errorConditionFormula>
+    <errorDisplayField>Cell__c</errorDisplayField>
+    <errorMessage>The selected Cell does not belong to the specified Parcel Locker</errorMessage>
+</ValidationRule>
