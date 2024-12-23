@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Percentage_of_Volume_Occupied__c</fullName>
-    <externalId>false</externalId>
-    <formula>(  Total_Occupied_Volume__c  /  Total_Volume__c ) * 100</formula>
+    <formula>Total_Occupied_Volume__c  /  Total_Volume__c</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Percentage of Volume Occupied</label>
     <precision>18</precision>
     <required>false</required>
     <scale>2</scale>
     <trackTrending>false</trackTrending>
-    <type>Number</type>
-    <unique>false</unique>
+    <type>Percent</type>
 </CustomField>
