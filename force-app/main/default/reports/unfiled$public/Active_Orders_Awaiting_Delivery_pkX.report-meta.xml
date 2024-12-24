@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ParcelLocker__c.Cell_Orders__r$Name</field>
+    </columns>
+    <columns>
+        <field>ParcelLocker__c.Cell_Orders__r$State__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>ParcelLocker__c.Cell_Orders__r$State__c</column>
+            <columnToColumn>false</columnToColumn>
+            <isUnlocked>true</isUnlocked>
+            <operator>equals</operator>
+            <value>Pending delivery</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>ParcelLocker__c$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Active Orders Awaiting Delivery</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Parcel_Lockers__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <showGrandTotal>true</showGrandTotal>
+    <showSubTotals>true</showSubTotals>
+    <timeFrameFilter>
+        <dateColumn>ParcelLocker__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
