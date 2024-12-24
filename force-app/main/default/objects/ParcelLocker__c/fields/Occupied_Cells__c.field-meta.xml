@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Occupied_Cells__c</fullName>
+    <label>Occupied Cells</label>
+    <summaryFilterItems>
+        <field>Cell__c.Availability__c</field>
+        <operation>equals</operation>
+        <value>Full</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Cell__c.ParcelLocker__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
