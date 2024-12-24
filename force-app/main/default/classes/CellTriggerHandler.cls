@@ -14,6 +14,13 @@ public without sharing class CellTriggerHandler implements TriggerHandler {
     public void beforeUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<ID, SObject> oldCellsMap, Map<ID, SObject> newCellsMap) {
         // helper.doTask3();
         // helper.doTask4();
+        for (Cell__c cell : newCells) {
+             Cell__c oldCell = (Cell__c)oldCellsMap.get(cell.Id);
+             if (cell.Availability__c == 'Full' && oldCell.Availability__c != 'Full' && cell.Status__c == 'Closed' && oldCell.Status__c != 'Closed' && String.isBlank(cell.Pin__c)) {
+                String pin = GeneratorPin.generateUniquePin();
+                cell.Pin__c = pin;
+            }
+        }
     }
     public void beforeDelete(List<Cell__c> oldCells, Map<ID, SObject> oldCellsMap) {
         // helper.doTask5();
@@ -24,8 +31,8 @@ public without sharing class CellTriggerHandler implements TriggerHandler {
         // helper.doTask3();
     }
     public void afterUpdate(List<Cell__c> oldCells, List<Cell__c> newCells, Map<ID, SObject> oldCellsMap, Map<ID, SObject> newCellsMap) {
-        // helper.doTask4();
-        // helper.doTask5();
+         helper.externalServiceUpdateStatus(newCells, oldCellsMap);
+        // helper.doTask5
     }
     public void afterDelete(List<Cell__c> oldCells, Map<ID, SObject> oldCellsMap) {
         // helper.doTask3();

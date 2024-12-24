@@ -5,7 +5,7 @@ trigger CellTrigger on Cell__c (before insert, before update, after insert, afte
             // handler.beforeInsert(Trigger.new);
         }
         when BEFORE_UPDATE {
-            // handler.beforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
+            handler.beforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
         }
         when BEFORE_DELETE {
             // handler.beforeDelete(Trigger.old, Trigger.oldMap);
@@ -21,12 +21,6 @@ trigger CellTrigger on Cell__c (before insert, before update, after insert, afte
         }
         when AFTER_UNDELETE {
             // handler.afterUndelete(Trigger.new, Trigger.newMap);
-        }
-    }
-    for (Cell__c cell : Trigger.new) {
-        if (cell.Availability__c == 'Full' && Trigger.oldMap.get(cell.Id).Availability__c != 'Full' && cell.Status__c == 'Closed' && Trigger.oldMap.get(cell.Id).Status__c != 'Closed' && String.isBlank(cell.Pin__c)) {
-            String pin = GeneratorPin.generateUniquePin();
-            cell.Pin__c = pin;
         }
     }
 }
