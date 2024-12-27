@@ -5,7 +5,7 @@ trigger CellTrigger on Cell__c (before insert, before update, after insert, afte
             // handler.beforeInsert(Trigger.new);
         }
         when BEFORE_UPDATE {
-            // handler.beforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
+            handler.beforeUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
         }
         when BEFORE_DELETE {
             // handler.beforeDelete(Trigger.old, Trigger.oldMap);
@@ -14,7 +14,7 @@ trigger CellTrigger on Cell__c (before insert, before update, after insert, afte
             // handler.afterInsert(Trigger.new, Trigger.newMap);
         }
         when AFTER_UPDATE {
-            // handler.afterUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
+             handler.afterUpdate(Trigger.old, Trigger.new, Trigger.oldMap, Trigger.newMap);
         }
         when AFTER_DELETE {
             // handler.afterDelete(Trigger.old, Trigger.oldMap);
