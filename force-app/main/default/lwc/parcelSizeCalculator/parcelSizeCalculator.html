@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Parcel size calculator" icon-name="custom:custom63">
+        <div class="slds-p-around_medium">
+           
+            <lightning-button 
+                label="Calculate parcel size" 
+                onclick={processOrderProducts} 
+                class="slds-m-bottom_small calculateBoxSizeButton"
+                id="calculateBoxSizeButton">
+            </lightning-button>
+                <div class="scene-container" lwc:dom="manual" ></div>
+                <div class="info" lwc:dom="manual"></div>
+        
+        </div>
+    </lightning-card>
+</template>
