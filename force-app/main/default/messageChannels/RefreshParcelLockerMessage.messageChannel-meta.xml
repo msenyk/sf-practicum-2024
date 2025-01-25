@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata" fqn="RefreshParcelLocker">
+    <masterLabel>RefreshParcelLocker</masterLabel>
+    <description>Message channel for refreshing parcel locker cells</description>
+    <isExposed>true</isExposed>
+</LightningMessageChannel>

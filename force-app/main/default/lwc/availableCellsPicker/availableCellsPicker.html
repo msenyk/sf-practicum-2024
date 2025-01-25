@@ -1,0 +1,28 @@
+<template>
+    <div class="slds-grid slds-grid_vertical-align-center slds-p-around_small">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-6">
+            <lightning-combobox 
+                label="Select cell by position"
+                placeholder="Select cell"
+                value={selectedCell}
+                options={cellOptions}
+                onchange={handleCellChange}>
+            </lightning-combobox>
+        </div>
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-6 slds-p-left_x-small" style="margin-top: 20px;">
+            <lightning-button 
+                label="Select Cell" 
+                variant="brand" 
+                onclick={handleSelectCell} 
+                disabled={isSelectButtonDisabled}
+                class="slds-m-right_small">
+            </lightning-button>
+            <lightning-button 
+                label="Select optimal cell" 
+                variant="neutral" 
+                onclick={handleSelectOptimalCell} 
+                disabled={isOptimalButtonDisabled}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

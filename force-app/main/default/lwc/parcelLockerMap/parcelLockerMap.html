@@ -1,0 +1,71 @@
+<template>
+    <table class="locker-table">
+        <tbody>
+            <template for:each={rows} for:item="row">
+                <tr key={row.name} class={row.cssClass}>
+                    <template for:each={row.cells} for:item="cell">
+                        <td key={cell.name} class={cell.cssClass} style={cell.style} onclick={handleCellClick}>
+                            <template if:true={cell.isSubCell}>
+                                <table class="sub-cell-table">
+                                    <tbody>
+                                        <template for:each={cell.subCells} for:item="subCellRow">
+                                            <tr key={subCellRow.name}>
+                                                <template for:each={subCellRow.cells} for:item="subCell">
+                                                    <td key={subCell.name} style={subCell.style}
+                                                        class={subCell.cssClass} onclick={handleCellClick}>
+                                                        <template if:false={subCell.isEmpty}>
+                                                            <div class="cell-content" data-id={subCell.id}>
+                                                                <div class="cell-position">
+                                                                    {subCell.position}
+                                                                </div>
+                                                                <div class="cell-labels">
+                                                                    <div class="cell-info">
+                                                                        <div class="cell-number">
+                                                                            {subCell.name}
+                                                                        </div>
+                                                                        <div class="cell-availability"
+                                                                            style={subCell.availabilityStyle}>
+                                                                            {subCell.availability}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="cell-status">
+                                                                        <template if:true={subCell.statusBoolean}>
+                                                                            <img src={subCell.imageSrc}
+                                                                                alt={subCell.status} />
+                                                                        </template>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </td>
+                                                </template>
+                                            </tr>
+                                        </template>
+                                    </tbody>
+                                </table>
+                            </template>
+                            <template if:false={cell.isSubCell}>
+                                <div class="cell-content" data-id={cell.id}>
+                                    <div class="cell-position">{cell.position}</div>
+                                    <div class="cell-labels">
+                                        <div class="cell-info">
+                                            <div class="cell-number">{cell.name}</div>
+                                            <div class="cell-availability" style={cell.availabilityStyle}>
+                                                {cell.availability}
+                                            </div>
+                                        </div>
+                                        <div class="cell-status">
+                                            <template if:true={cell.statusBoolean}>
+                                                <img src={cell.imageSrc} alt={cell.status} />
+                                            </template>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </td>
+                    </template>
+                </tr>
+            </template>
+        </tbody>
+    </table>
+</template>
