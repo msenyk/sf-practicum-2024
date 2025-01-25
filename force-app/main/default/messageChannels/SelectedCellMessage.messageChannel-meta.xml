@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata" fqn="SelectedCellMessage">
+    <masterLabel>SelectedCellMessage</masterLabel>
+    <description>Message channel for sending selected cell id</description>
+    <isExposed>true</isExposed>
+</LightningMessageChannel>
